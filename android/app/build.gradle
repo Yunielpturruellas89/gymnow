@@ -26,7 +26,7 @@ if (flutterVersionName == null) {
 android {
     namespace = "com.example.gymnow"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -42,9 +42,15 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
+        multiDexEnabled  = true
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+                        // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' // Temporarily comment out
+            }
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
